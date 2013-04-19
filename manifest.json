@@ -1,0 +1,34 @@
+{
+  "name" : "Locksmith",
+  "version" : "0.1",
+  "description" : "Locksmith.io credential loader",
+  "background" : {
+    "scripts": ["background.js"]
+  },
+  "options_page": "options.html",
+  "page_action" :
+  {
+    "default_icon" : "icon.png",
+    "default_title" : "Locksmith"
+  },
+  "permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_scripts" : [
+    {
+      "matches" : [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js" : ["content_script.js"],
+      "run_at" : "document_idle",
+      "all_frames" : false
+    }
+  ],
+  "icons" : {
+    "48" : "icon-48.png",
+    "128" : "icon-128.png"
+  },
+  "manifest_version": 2
+}
