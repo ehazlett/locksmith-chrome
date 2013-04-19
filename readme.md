@@ -12,3 +12,7 @@ directory.
 This will query the locksmith API asynchronously whenever you load a page.  It
 will then look for corresponding username and password fields and auto-fill them
 if it finds a credential.  It uses the `url` field of the credential to match.
+
+Note: the Locksmith api uses your current session to decrypt your data so you
+will need to make sure you have logged in to the Locksmith web app in order for
+the extension to work.
