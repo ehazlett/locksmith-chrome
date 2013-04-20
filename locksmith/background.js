@@ -1,7 +1,7 @@
 function onRequest(request, sender, sendResponse) {
   var apiHost = localStorage['host'];
   var apiUrl = apiHost + '/api/v1';
-  var credsUrl = apiUrl + '/credentials/?limit=250';
+  var credsUrl = apiUrl + '/credentials/?limit=50';
 
   //var host = sender.tab.url.split('/')[2];
   var host = sender.tab.url;
