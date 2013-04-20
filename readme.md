@@ -5,8 +5,8 @@ Note: this is experimental.
 
 # Installation
 Since this is still experimental, you will need to clone this repo, open
-`chrome://extensions`, select `Load unpacked extension...`, and browse to this
-directory.
+`chrome://extensions`, select `Load unpacked extension...`, and browse to the
+`locksmith` directory in this repo.
 
 # Usage
 This will query the locksmith API asynchronously whenever you load a page.  It

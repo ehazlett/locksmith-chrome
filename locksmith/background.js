@@ -2,9 +2,11 @@ var apiUrl = 'https://locksmith.io/api/v1';
 var credsUrl = apiUrl + '/credentials/?limit=250';
 
 function onRequest(request, sender, sendResponse) {
-  var url = sender.tab.url;
+  //var host = sender.tab.url.split('/')[2];
+  var host = sender.tab.url;
   var username = localStorage['username'];
   var apiKey = localStorage['api_key'];
+  var filterUrl = credsUrl + '&url__iexact=' + host;
 
   function setHeaders(xhr) {
     xhr.setRequestHeader('Content-type', 'application/json');
@@ -18,6 +20,7 @@ function onRequest(request, sender, sendResponse) {
       var data = {
         apiUrl: apiUrl,
         credsUrl: credsUrl,
+        filterUrl: filterUrl,
         apiKey: apiKey
       }
       sendResponse({debug: data});
@@ -34,7 +37,7 @@ function onRequest(request, sender, sendResponse) {
           }
         }
       }
-      xhr.open('GET', credsUrl, true);
+      xhr.open('GET', filterUrl, true);
       xhr.send();
       break;
     default:

@@ -21,6 +21,7 @@
         "http://*/*",
         "https://*/*"
       ],
+      "css": ["main.css"],
       "js" : ["content_script.js"],
       "run_at" : "document_idle",
       "all_frames" : false
