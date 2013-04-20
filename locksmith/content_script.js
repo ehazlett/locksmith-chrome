@@ -10,10 +10,11 @@ document.body.appendChild(credListDOM);
 
 credDOM.addEventListener('click', toggleList, false);
 
-chrome.extension.sendRequest({method: "debug"}, function(response) {
-  console.log('Debug:');
-  console.log(response.debug);
-});
+// debug
+//chrome.extension.sendRequest({method: "debug"}, function(response) {
+//  console.log('Debug:');
+//  console.log(response.debug);
+//});
 function toggleList() {
   var visible = credListDOM.style.visibility;
   if (visible === 'visible') {
@@ -41,6 +42,7 @@ function setCredentials(username, password) {
     var f = fields[i];
     // username
     var fname = f.name.toLowerCase();
+    if (fname == '') { fname = f.id.toLowerCase(); }
     if (isUsernameField(fname)) {
       f.value = username;
     }
@@ -57,7 +59,6 @@ function credLinkClick(e) {
   toggleList();
 }
 function showCredentialList(credentials) {
-  console.log('showCredentialList');
   credDOM.style.visibility = 'visible';
   credListDOM.innerHTML = '';
   var newDiv = document.createElement('div');
@@ -68,7 +69,7 @@ function showCredentialList(credentials) {
     credLink.setAttribute('name', cred.name);
     credLink.setAttribute('username', cred.username);
     credLink.setAttribute('password', cred.password);
-    credLink.innerText = credentials[i].name;
+    credLink.innerText = cred.groups[0].name + ': ' + cred.name;
     credLink.addEventListener('click', credLinkClick, false);
     credParent.appendChild(credLink);
     newDiv.appendChild(credParent);
@@ -76,7 +77,6 @@ function showCredentialList(credentials) {
   credListDOM.appendChild(newDiv);
 }
 chrome.extension.sendRequest({method: "getCredentials"}, function(response) {
-  console.log('getCredentials');
   var credentials = response.data.objects;
   if (credentials.length == 1) {
     var cred = credentials[0];

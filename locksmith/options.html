@@ -1,15 +1,55 @@
 <html>
 <head><title>Locksmith Options</title></head>
-
+<style>
+body {
+  background-color: #f2f2f2;
+}
+div.options {
+  margin: 0 auto 0 auto;
+  padding: 10px;
+  width: 50%;
+  background-color: #fefefe;
+  border: 1px solid #a1a1a1;
+  border-radius: 5px;
+}
+button {
+  -webkit-user-select: none;
+  -webkit-appearance: none;
+  background-image: -webkit-linear-gradient(#ededed, #ededed 38%, #dedede);
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.75);
+  color: #444;
+  font: inherit;
+  text-shadow: 0 1px 0 #f0f0f0;
+  height: 24px;
+  font-size: 12px;
+  padding: 0 10px;
+}
+button:hover {
+  background-image: -webkit-linear-gradient(#f0f0f0, #f0f0f0 38%, #e0e0e0);
+  border-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12), inset 0 1px 2px rgba(255, 255, 255, 0.95);
+  color: black;
+}
+button:active {
+  background-image: -webkit-linear-gradient(#e7e7e7, #e7e7e7 38%, #d7d7d7);
+  box-shadow: none;
+  text-shadow: none;
+}
+</style>
 <body>
+<div class="options">
+  <p>Host: <input type="text" name="host" id="host" value="" placeholder="Locksmith Host"/></p>
+  <p>Username: <input type="text" name="username" id="username" value="" placeholder="Username" /></p>
+  <p>API Key: <input type="text" name="apiKey" id="apiKey" value="" placeholder="API Key" /></p>
 
-Locksmith API Key:
-<input type="text" name="username" id="username" value="" />
-<input type="text" name="apiKey" id="apiKey" value="" />
-
-<br>
-<div id="status"></div>
-<button id="save">Save</button>
+  <br>
+  <div id="status"></div>
+  <div id="buttonContainer">
+  <button id="save">Save</button>
+  </div>
+</div>
 </body>
 
 <script src="options.js"></script>
